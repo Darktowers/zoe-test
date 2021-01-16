@@ -4,11 +4,15 @@
     align-items: center;
     justify-content: flex-start;
     background: #fafafa;
-
+    @media screen and (max-width: 768px) {
+        padding: 1em .5em;
+    }
     &-imageContainer {
         max-width: 130px;
         margin: 0;
-
+        @media screen and (max-width: 768px) {
+            max-width: 80px;
+        }
         &-img {
             width: 100%;
         }

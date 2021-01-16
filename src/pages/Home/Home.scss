@@ -19,11 +19,13 @@
     &-title {
         font-weight: bold;
         color: $color-title;
+        text-align: center;
     }
 
     &-subTitle {
         color: $color-title;
         margin-top: .5em;
+        text-align: center;
     }
 
     &-search {
@@ -31,7 +33,9 @@
         color: $color-title;
         max-width: 420px;
         width: 100%;
-
+        @media screen and (max-width: 768px) {
+            margin-top: 1em;
+        }
         &-inputContainer {
             position: relative;
             display: flex;
