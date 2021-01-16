@@ -1,64 +1,36 @@
-import { useEffect, useState } from 'react';
-import { Agent } from '../../services/agents/api';
+import { useState } from 'react';
 import './Home.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faDollarSign, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
     const [income, setIncome] = useState<number>(0)
-    const [agents, setAgents] = useState<Agent[]>([])
-    const [filterAgents, setFilterAgents] = useState<Agent[]>([])
-    const [toggle, setToggle] = useState(false);
-    const [indexPaginate, setIndexPaginate] = useState(0);
-
+    const history = useHistory()
     const searchAgent = () => {
-        if (income && income < 10000) return
-        const filterData = agents.filter((agent: Agent) => agent.income >= (income - 10000) && agent.income <= (income + 10000))
-        console.log(filterData)
-        setFilterAgents(filterData)
+        if (income < 10000) return;
+        history.push(`/agents/${income}`)
     }
-
-    const sortByIncome = () => {
-        const agentsInit = [...filterAgents];
-        if (toggle)
-            agentsInit.sort((a, b) => a.income - b.income)
-        else
-            agentsInit.sort((a, b) => b.income - a.income)
-        setToggle(!toggle)
-        console.log(agentsInit);
-        setFilterAgents(agentsInit)
-    }
-
-    const seeMore = () => {
-        if(filterAgents.length === 0) return 
-        const paginatedData = [...filterAgents]
-        const newIndexPaginate = indexPaginate >= paginatedData.length ? indexPaginate : indexPaginate + 3;
-        console.log(paginatedData.slice(0, newIndexPaginate));
-        setIndexPaginate(newIndexPaginate)
-    }
-    const seeLess = () => {
-        const paginatedData = [...filterAgents]
-        const newIndexPaginate = indexPaginate > 3 ? indexPaginate - 3 : 3;
-        console.log(paginatedData.slice(0, newIndexPaginate));
-        setIndexPaginate(newIndexPaginate)
-    }
-    useEffect(() => {
-        fetch('http://localhost:3000/agents.json').then(res => res.json()).then(data => setAgents(data.data));
-    }, [])
-
-    useEffect(() => {
-        seeMore()
-    }, [filterAgents])
     return (<>
         <main className="container">
-            <section >
-                <input type="number" onChange={(e) => setIncome(parseInt(e.target.value))} />
-                <button onClick={() => searchAgent()}>MATCH</button>
-                <button onClick={() => sortByIncome()}>BY INCOME</button>
-                <button onClick={() => seeMore()}>See More</button>
-                <button onClick={() => seeLess()}>See Less</button>
-
-            </section>
-            <section>
-
+            <section className="home">
+                <div className="home-imageContainer">
+                    <FontAwesomeIcon className="home-imageContainer-svg" icon={faUsers} />
+                </div>
+                <h1 className="home-title">Find the best agent for you!</h1>
+                <h5 className="home-subTitle">Fill the information bellow to get your matches.</h5>
+                <div className="home-search">
+                    <label htmlFor="">Current income</label>
+                    <div className="home-search-inputContainer">
+                        <FontAwesomeIcon className="home-search-inputContainer-dollar" icon={faDollarSign} />
+                        <input className="home-search-inputContainer-input" type="number" onChange={(e) => setIncome(parseInt(e.target.value))} />
+                    </div>
+                    <div className="home-search-btnContainer">
+                        <button className="home-search-btnContainer-btn" onClick={() => searchAgent()}>Get matches
+                        <FontAwesomeIcon className="home-search-btnContainer-icon" icon={faArrowRight} />
+                        </button>
+                    </div>
+                </div>
             </section>
         </main>
 

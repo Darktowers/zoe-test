@@ -1,0 +1,16 @@
+.menu {
+    padding: 2em 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fafafa;
+
+    &-imageContainer {
+        max-width: 130px;
+        margin: 0;
+
+        &-img {
+            width: 100%;
+        }
+    }
+}

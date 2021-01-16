@@ -1,0 +1,60 @@
+@import '../../styles/variables.scss';
+.agents {
+    &-userInfo {
+        text-align: center;
+        color: $color-title;
+        padding: 2em 1em;
+
+        h1 {
+            font-weight: bold;
+            font-size: 43px;
+        }
+    }
+
+    &-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    &-notFound {
+        text-align: center;
+    }
+
+    &-controls {
+        display: flex;
+        margin-bottom: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+        color: $color-title;
+
+        select {
+            padding: 1em;
+            outline: none;
+            border: 1px solid gainsboro;
+            border-radius: .5em;
+            color: $color-text-outside;
+        }
+    }
+
+    &-paginator {
+        margin: 1em .5em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        button {
+            border: none;
+            background: inherit;
+            font-size: 18px;
+            outline: none;
+            margin-right: 1em;
+            font-weight: bold;
+            color: $color-text-outside;
+            transition: all .3s ease-in-out;
+            &:hover {
+                color: $color-blue-btn;
+            }
+        }
+    }
+}

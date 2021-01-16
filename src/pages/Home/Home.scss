@@ -1,0 +1,79 @@
+@import '../../styles/variables.scss';
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+
+    &-imageContainer {
+        margin-bottom: 2em;
+
+        &-svg {
+            font-size: 80px;
+            color: #747d9b;
+        }
+    }
+
+    &-title {
+        font-weight: bold;
+        color: $color-title;
+    }
+
+    &-subTitle {
+        color: $color-title;
+        margin-top: .5em;
+    }
+
+    &-search {
+        margin-top: 3em;
+        color: $color-title;
+        max-width: 420px;
+        width: 100%;
+
+        &-inputContainer {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            &-dollar {
+                position: absolute;
+                left: .8em;
+                font-size: 1.5em;
+            }
+
+            &-input {
+                width: 100%;
+                padding: .5em;
+                padding-left: 1.8em;
+                font-size: 22px;
+                border: 1px solid gainsboro;
+                border-radius: .2em;
+                outline: none;
+            }
+
+        }
+
+        &-btnContainer {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 2em;
+
+            &-btn {
+                padding: .5em 1em;
+                font-size: 18px;
+                outline: none;
+                border: none;
+                color: white;
+                background: $color-blue-btn;
+                border-radius: .3em;
+            }
+
+            &-icon {
+                margin-left: 1em;
+            }
+        }
+    }
+}

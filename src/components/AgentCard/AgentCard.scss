@@ -1,0 +1,61 @@
+@import '../../styles/variables.scss';
+
+.agentCard {
+    max-width: 350px;
+    width: 100%;
+    padding: 1em;
+    box-shadow: 0px 6px 11px #ccc;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    border-radius: .5em;
+    margin-bottom: 1em;
+    color: #5f5f5f;
+
+    &-imageContainer {
+        max-width: 150px;
+        margin: 0 auto;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &-img {
+            max-width: 300px;
+        }
+    }
+
+    &-info {
+        text-align: center;
+        margin-top: 2em;
+        color: $color-text-card;
+
+        &-name {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        &-id {
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+
+    &-income {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        padding: 1.5em 1em;
+        background: whitesmoke;
+        color: $color-text-card;
+
+        p {
+            font-size: 18px;
+            margin: 0;
+        }
+    }
+}
